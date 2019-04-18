@@ -48,7 +48,7 @@ def put(url, body=None, timeout=4000):
             r = requests.put(url, headers=_headers, timeout=timeout/1000)
         else:
             r = requests.put(url, headers=_headers,
-                             timeout=timeout/1000, data=body)
+                             timeout=timeout/1000, json=body)
 
         if r.status_code == 200 or r.status_code == 500:
             data = json.loads(r.content)
@@ -74,7 +74,7 @@ def post(url, body=None, timeout=4000):
             r = requests.post(url, headers=_headers, timeout=timeout/1000)
         else:
             r = requests.post(url, headers=_headers,
-                              timeout=timeout/1000, data=body)
+                              timeout=timeout/1000, json=body)
         if r.status_code == 200 or r.status_code == 500:
             data = json.loads(r.content)
             if data['success'] == True:
